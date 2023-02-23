@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d6d7a1d9bc9043b4e63bf1c457b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 30
+  rotationSpeed: 60
 --- !u!4 &84615306
 Transform:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ Transform:
   m_Children:
   - {fileID: 1211419928}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &197094920
 GameObject:
@@ -237,7 +237,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4c97b24d72ebade4d98acaf3b75c90ee, type: 2}
+  - {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -276,10 +276,10 @@ Transform:
   m_GameObject: {fileID: 197094920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &197094927
 MonoBehaviour:
@@ -293,9 +293,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe852442cd1b1544b81f73c973adf90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hangTime: 1.5
+  smashSpeed: 4
+  explosionForce: 20
+  explosionRadius: 15
   hasPowerUp: 0
   speed: 1
   powerupIndicator: {fileID: 1610084398}
+  rocketPrefab: {fileID: 3839020636825389966, guid: b6c3a812b0a917347a24b6c24649f269, type: 3}
+  currentPowerUp: 0
 --- !u!1001 &245963551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -402,7 +408,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &426181194
 MonoBehaviour:
@@ -416,12 +422,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24032db50421da142b5ba57afc4ae23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab:
-  - {fileID: 5228906413088701349, guid: d9cf4ca5ec9f0c844851389bc3aa5ea6, type: 3}
-  - {fileID: 5228906413088701349, guid: 7cd7151f1fba5874c80621224adbe3ae, type: 3}
   enemyCount: 0
   waveNumber: 1
-  powerupPrefab: {fileID: 485555449885268215, guid: 39ce96d5df00fcb4c8524db3e64c0b19, type: 3}
+  bossRound: 4
+  powerupPrefabs:
+  - {fileID: 485555449885268215, guid: 39ce96d5df00fcb4c8524db3e64c0b19, type: 3}
+  - {fileID: 485555449885268215, guid: eef6b683fb0e7ec43aaf6fbf383e046f, type: 3}
+  - {fileID: 8527622358664333475, guid: 2b50eda56c27b52459508685cc86003c, type: 3}
+  enemyPrefabs:
+  - {fileID: 5228906413088701349, guid: 7cd7151f1fba5874c80621224adbe3ae, type: 3}
+  - {fileID: 5228906413088701349, guid: d9cf4ca5ec9f0c844851389bc3aa5ea6, type: 3}
+  miniEnemyPrefabs:
+  - {fileID: 4499353659790558674, guid: ea31c44ff15df5647bcba480e26de936, type: 3}
+  - {fileID: 6110761789034833167, guid: 0cd03e653bd85b84c89b3cbfed2967d7, type: 3}
+  bossPrefab: {fileID: 3870999419896013788, guid: 41ff5b80d5dd39f47b0e656ef89af3b4, type: 3}
 --- !u!1001 &1115895873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -439,7 +453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
       propertyPath: m_LocalScale.x
