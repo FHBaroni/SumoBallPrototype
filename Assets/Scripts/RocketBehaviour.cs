@@ -5,9 +5,9 @@ using UnityEngine;
 public class RocketBehaviour : MonoBehaviour
 {
     private bool homing;
-    private float speed = 15.0f;
-    private float rocketStrength = 15.0f;
-    private float aliveTimer = 5.0f;
+    private float speed = 30.0f;
+    private float rocketStrength = 30.0f;
+    private float aliveTimer = 2.0f;
     private Transform target;
 
     /*
@@ -22,7 +22,7 @@ public class RocketBehaviour : MonoBehaviour
     Por fim, a função utiliza a função "LookAt" para fazer com que o objeto fique sempre virado para o alvo. Isso garante que o objeto sempre siga em direção
     ao alvo, mesmo que o alvo se mova. É importante notar que o objeto que possui esse script precisa ter um Collider para que possa detectar a colisão com o alvo.
     */
-    void Update()
+    void FixedUpdate()
     {
         if (target == null)
         {
@@ -33,6 +33,9 @@ public class RocketBehaviour : MonoBehaviour
             {
                 Vector3 moveDirection = (target.transform.position - transform.position).normalized;
                 transform.position += moveDirection * speed * Time.deltaTime;
+                var rot = transform.rotation;
+                rot.x += Time.deltaTime * 10;
+               
                 transform.LookAt(target);
             }
         }

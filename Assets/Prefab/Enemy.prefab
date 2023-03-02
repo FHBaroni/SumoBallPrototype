@@ -128,4 +128,4 @@ MonoBehaviour:
   isBoss: 0
   miniEnemySpawnCount: 0
   spawnInterval: 0
-  speed: 0.75
+  speed: 5

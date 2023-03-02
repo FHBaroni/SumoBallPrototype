@@ -38,7 +38,7 @@ public class SpawnEnemy : MonoBehaviour
         SpawnEnemyWave(waveNumber);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         enemyCount = FindObjectsOfType<Enemy>().Length;
         if (enemyCount == 0)

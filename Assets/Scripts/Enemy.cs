@@ -5,9 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public bool isBoss = false;
-    public int miniEnemySpawnCount;
-    public float spawnInterval;
-    public float speed = 1.0f;
+    public int miniEnemySpawnCount = 0;
+    public float spawnInterval = 2;
+    public float speed;
 
     private float nextSpawn;
     private GameObject player;
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
         enemyRb.AddForce(lookDirection * speed);
